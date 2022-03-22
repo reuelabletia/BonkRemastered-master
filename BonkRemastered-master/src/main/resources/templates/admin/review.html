@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/form.css">
+    <title>View Info</title>
+</head>
+<body>
+
+<nav class="side-bar">
+    <div class="logo">
+        <i class='bx bx-package'></i>
+    </div>
+
+    <ul class="nav-list">
+
+
+        <li class="nav-item">
+
+            <a href="Inventory.html" class="nav-link">
+                <i class='bx bx-table'></i>
+                <span class="link-text">Businesses</span>
+            </a>
+
+        </li>
+
+        <li class="nav-item">
+
+            <a href="index.html" class="nav-link">
+                <i class='bx bx-exit'></i>
+                <span class="link-text">Sign out</span>
+            </a>
+
+        </li>
+    </ul>
+</nav>
+<div class="view-business">
+    <form action="">
+        <h1>Business Information</h1>
+        <span>Business Name</span>
+        <p>Hello</p>
+
+        <span>Location</span>
+        <p>Hello</p>
+
+        <span>Proof of Business</span>
+        <p>Hello</p>
+    </form>
+</div>
+
+
+<div class="user-info">
+    <form th:method="PUT" th:action="@{~/admin}" th:object="${user}" class="user-form">
+        <h1>User Information</h1>
+
+        <input type="hidden" name="id" th:field="*{id}">
+        <span>First Name</span>
+        <p th:text="${user.firstName}"/>
+        <span>Middle Name</span>
+        <p th:text="${user.middleName}"/>
+
+        <span>Last Name</span>
+        <p th:text="${user.lastName}"/>
+
+        <span>Email</span>
+        <p th:text="${user.email}"/>
+
+        <span>Phone Number</span>
+        <p th:text="${user.phoneNum}"/>
+
+        <span>Business Approval</span>
+        <select th:field="*{businessOwner}">
+            <option value=1>Pending</option>
+            <option value=2>Approved</option>
+            <option value=3>Declined</option>
+        </select>
+
+        <span>Admin Approval</span>
+        <select th:field="*{isAdmin}">
+            <option value=0>Deny</option>
+            <option value=1>Accept</option>
+        </select>
+
+
+        <input type="submit" value="Approve Business" class="update">
+
+
+    </form>
+    <form th:method="delete" th:action="@{~/admin}" class="btn-del">
+        <input type="hidden" name="id" th:value="${user.id}">
+        <button type="submit" class="update">Delete</button>
+    </form>
+
+</div>
+
+</body>
+</html>
+
+
