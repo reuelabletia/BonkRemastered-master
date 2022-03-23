@@ -61,7 +61,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO validateUser(String emailAddress, String password) throws UsernameNotFoundException {
-        User user = userRepository.findByEmailAddress(emailAddress);
+        User user = userRepository.findByEmail(emailAddress);
 
         if (passwordEncoder.matches(password, user.getPasswordHash())) {
             return new UserDTO(user);
