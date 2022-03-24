@@ -18,15 +18,15 @@
       you create."</h1>
   </div>
 
-  <form action="#login" class="login">
+  <form th:method="POST" th:action="@{~/user}" th:object="${user}" class="login">
 
     <h1>Sign in to Merkante</h1>
 
     <span>Email:</span>
-    <input type="email" placeholder="Email">
+    <input type="email" placeholder="Email" id="email" th:field="*{email}">
 
     <span>Password:</span>
-    <input type="password" placeholder="Password">
+    <input type="password" placeholder="Password" id="password" th:field="*{password}">
 
     <button type="submit">Sign in</button>
 
