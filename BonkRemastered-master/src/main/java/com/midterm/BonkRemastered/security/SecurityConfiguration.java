@@ -29,12 +29,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 // Here, we are allowing access to the landing, and register pages to anonymous users only
-                .antMatchers("/", "/user/login*")
+                .antMatchers("/user*","/login*")
                 .anonymous()
                 // Here, we are allowing access to user pages to the admin role only
                 .antMatchers("/user*").hasRole("ADMIN")
-                // Here, we are allowing access to product pages to the admin and employee roles only
-                .antMatchers("/admin*").hasAnyRole("ADMIN", "EMPLOYEE")
+                // Here, we are allowing access to product pages to the admin and user roles only
+                .antMatchers("/admin*").hasAnyRole("ADMIN", "USER")
                 // Any other requests should be authenticated
                 .anyRequest()
                 .authenticated()

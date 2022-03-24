@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("register")
 public class RegistrationController {
 
-    private static final String CUSTOMER_ROLE = "ROLE_CUSTOMER";
+    private static final String CUSTOMER_ROLE = "ROLE_USER";
 
     @Autowired
     private UserService userService;

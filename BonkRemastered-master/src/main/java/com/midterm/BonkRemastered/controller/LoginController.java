@@ -14,6 +14,6 @@ public class LoginController {
     @GetMapping
     private String index(Model model) {
         model.addAttribute("user", new UserDTO());
-        return "login/index";
+        return "user/login";
     }
 }
