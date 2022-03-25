@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("user")
 public class UserController {
 
+    private static final String CUSTOMER_ROLE = "ROLE_USER";
+
     @Autowired
     private UserService userService;
 
@@ -33,6 +35,7 @@ public class UserController {
 
     @PostMapping
     private String addUser(UserDTO user, Model model) {
+        user.setRole(CUSTOMER_ROLE);
         userService.add(user);
         return "user/index";
     }
